@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriott Towers</title>
+    <link rel="stylesheet" href="property-styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const typeSelect = document.getElementById('type');
+            const detailsDiv = document.getElementById('details');
+            
+            const propertyDetails = {
+                '1 BED': `
+                    <ul>
+                        <li>GALLERY - Tower C</li>
+                        <li>66-98 Sqm</li>
+                        <li>Prices: 12.1M - 16.2M (12M)</li>
+                        <li>15% DP / Over 7 Y</li>
+                        <li>10% After 2Y</li>
+                        <li>Per 420K/Q</li>
+                        <li>12% Maintenance</li>
+                        <li>Delivery: 2028</li>
+                        <li>1.6M Yearly</li>
+                        <li>Contact: 01010757374</li>
+                    </ul>`,
+                '2 BED GALLERY': `
+                    <ul>
+                        <li>GALLERY - Tower C</li>
+                        <li>125 Sqm</li>
+                        <li>Prices: 20M (17M)</li>
+                        <li>15% DP / Over 7 Y</li>
+                        <li>10% After 2Y</li>
+                        <li>Per 580K/Q</li>
+                        <li>12% Maintenance</li>
+                        <li>Delivery: 2028</li>
+                        <li>2.1M Yearly</li>
+                        <li>Contact: 01010757374</li>
+                    </ul>`,
+                '2 BED GARDEN': `
+                    <ul>
+                        <li>Garden / Back View - Tower C</li>
+                        <li>127 Sqm</li>
+                        <li>Prices: 13-14M (11.9M)</li>
+                        <li>15% DP / Over 7 Y</li>
+                        <li>10% After 2Y</li>
+                        <li>Per 400K/Q</li>
+                        <li>12% Maintenance</li>
+                        <li>Delivery: 2028</li>
+                        <li>1.2M Yearly</li>
+                        <li>Contact: 01010757374</li>
+                    </ul>`,
+                '3 BED': `
+                    <ul>
+                        <li>Thawra ST</li>
+                        <li>181-198 Sqm</li>
+                        <li>Prices: 34-36M</li>
+                        <li>50% DP / Over 2 Y</li>
+                        <li>Per 2.1M/Q</li>
+                        <li>12% Maintenance</li>
+                        <li>Delivery: 2025</li>
+                        <li>Cash Discount: 35% Over All</li>
+                        <li>Contact: 01010757374</li>
+                    </ul>`
+            };
+
+            typeSelect.addEventListener('change', function() {
+                const selectedType = typeSelect.value;
+
+                if (selectedType) {
+                    detailsDiv.innerHTML = propertyDetails[selectedType];
+                } else {
+                    detailsDiv.innerHTML = '';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Marriott Towers</h1>
+        <form id="propertyForm">
+            <label for="type">Choose Type:</label>
+            <select id="type" required>
+                <option value="">--Choose a type--</option>
+                <option value="1 BED">1 BED</option>
+                <option value="2 BED GALLERY">2 BED (Gallery)</option>
+                <option value="2 BED GARDEN">2 BED (Garden)</option>
+                <option value="3 BED">3 BED</option>
+            </select>
+
+            <label for="details">Details:</label>
+            <div id="details"></div>
+        </form>
+    </div>
+</body>
+</html>
